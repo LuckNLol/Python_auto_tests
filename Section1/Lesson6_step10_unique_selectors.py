@@ -9,9 +9,11 @@ my_word = rw.random_word()
 try:
     # link = "http://suninjuly.github.io/registration1.html"
     link = "http://suninjuly.github.io/registration2.html"
-    time.sleep(3)
+
     browser = webdriver.Chrome()
-    browser.get(link)
+    browser.maximize_window()
+    browser.get("http://suninjuly.github.io/registration1.html")
+    time.sleep(3)
     star_element1 = browser.find_element(By.XPATH, "//input[@placeholder='Input your first name']")
     star_element1.send_keys(my_word)
     star_element2 = browser.find_element(By.XPATH, "//input[@placeholder='Input your last name']")
