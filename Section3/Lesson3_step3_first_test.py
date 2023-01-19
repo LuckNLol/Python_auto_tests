@@ -48,5 +48,6 @@ def test_RegPage2_PyTest():
     finally:
         browser.quit()
 
+# Необязательная запись
 if __name__ == "__main__":
     pytest.main()
