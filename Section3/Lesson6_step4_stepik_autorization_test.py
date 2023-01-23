@@ -38,12 +38,8 @@ def test_stepik_login_link(browser, email):
     # Найти кнопку "Отправить", ДОЖДАТЬСЯ ПОКА КНОПКА СТАНЕТ КЛИКАБЕЛЬНОЙ, нажать
     send_btn = WebDriverWait(browser, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".submit-submission")))
     send_btn.click()
-    # browser.find_element(By.CSS_SELECTOR, ".submit-submission").click()
 
+    # Сравнить полученные результаты
     fin_text = WebDriverWait(browser, 5).until(EC.invisibility_of_element_located((By.CSS_SELECTOR, ".smart-hints__hint")))
     graduate_text = fin_text.text
     assert "Correct!" == graduate_text
-
-    # final_text = browser.find_element(By.CSS_SELECTOR, "p.smart-hints__hint")
-    # graduate_text = final_text.text
-    # assert "Correct!" == graduate_text
