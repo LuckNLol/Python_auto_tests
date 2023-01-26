@@ -12,29 +12,11 @@ def pytest_addoption(parser):
     # default=None или "chrome" или "firefox" (Регистр важен!). Менять браузер можно тут или ниже.
     parser.addoption("--language", action="store", default=None, help="Choose language: ru, en, ...(etc)")
 
-# # for Chrome:
-# options = Options()
-# options.add_experimental_option('preferred lang', {'intl.accept_languages': "suomi"})
-#
-# # for Firefox:
-# options_firefox = OptionsFirefox()
-# options_firefox.set_preference("intl.accept_languages", "suomi")
-
 # КОГДА НУЖНО ИМПЛЕМЕНТИРОВАТЬ НЕСКОЛЬКО БРАУЗЕРОВ
 @pytest.fixture(scope="function") # function, class, module, session
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
-    # browser = None  # default=None или "chrome" или "cirefox" (Регистр важен!). Менять браузер можно тут или выше.
-
-    # for Chrome
-    # chrome_options = ChromeOptions()
-    # chrome_options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-
-    # for Firefix
-    # firefox_options = FirefoxOptions()
-    # firefox_options.set_preference("intl.accept_languages", user_language)
-
 
     if browser_name == "chrome":
         chrome_options = ChromeOptions()
